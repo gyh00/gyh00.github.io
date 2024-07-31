@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邀请函</title>
+    <!-- 引入 Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* 确保页面可以滚动 */
+        }
+        .container {
+            max-width: 1400px; /* 设置最大宽度 */
+            width: 100%; /* 使容器宽度自适应 */
+            padding: 20px;
+            box-sizing: border-box; /* 包含内边距和边框在内的总宽度 */
+        }
+        .content {
+            width: 2000px; /* 使内容宽度足够大，可以左右滚动 */
+            height: 3000px; /* 使内容高度足够大，可以上下滚动 */
+            background: url('./红金色中国风升学宴邀请函.jpg') no-repeat center center;
+            background-size: cover; /* 确保背景图片覆盖整个页面 */
+            position: relative;
+            color: white; /* 使文本在深色背景上可见 */
+        }
+        .audio-controls {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
+        .link-button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: absolute;
+            bottom: 50px; /* 调整按钮距离底部的距离 */
+        }
+        .play-pause-button, .link-button {
+            background-color: rgba(255, 0, 0, 0.8); /* 红色透明背景 */
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 24px;
+            text-align: center;
+            line-height: 1.5; /* 调整行高以便垂直居中文字 */
+            width: 180px; /* 按钮宽度 */
+            height: 60px; /* 按钮高度 */
+            position: relative;
+            opacity: 0.8; /* 设置按钮透明度 */
+            transition: opacity 0.3s; /* 使透明度变化更加平滑 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px; /* 使按钮为方形并略微圆角 */
+        }
+        .play-pause-button {
+            border-radius: 50%; /* 使按钮圆形 */
+            width: 60px; /* 按钮宽度 */
+            height: 60px; /* 按钮高度 */
+        }
+        .play-pause-button:focus, .link-button:focus {
+            outline: none; /* 去除焦点时的边框 */
+        }
+        .play-pause-button::before {
+            content: '\f001'; /* Font Awesome 音符图标 */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900; /* 使用 Font Awesome 的加粗样式 */
+        }
+        .play-pause-button.paused::before {
+            content: '\f001'; /* 音符图标 */
+            text-decoration: line-through; /* 划掉音符图标 */
+        }
+        .play-pause-button:hover, .link-button:hover {
+            opacity: 1; /* 悬停时使按钮变得完全不透明 */
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <!-- 添加更多内容 -->
+    </div>
+
+    <div class="audio-controls">
+        <button class="play-pause-button" onclick="togglePlayPause()"></button>
+    </div>
+
+    <div class="link-button-container">
+        <button class="link-button" onclick="navigateToLink()">点击查看位置</button>
+    </div>
+
+    <audio id="background-music" src="./Music_Anak - Angham Suleiman.mp3" autoplay loop muted></audio>
+
+    <script>
+        const audio = document.getElementById('background-music');
+        const playPauseButton = document.querySelector('.play-pause-button');
+
+        // 初始化时，设置按钮为静音状态
+        audio.muted = true;
+        playPauseButton.classList.add('paused');
+
+        function togglePlayPause() {
+            if (audio.paused) {
+                audio.muted = false; // 取消静音
+                audio.play();
+                playPauseButton.classList.remove('paused');
+            } else {
+                audio.pause();
+                audio.muted = true; // 设置静音
+                playPauseButton.classList.add('paused');
+            }
+        }
+
+        function navigateToLink() {
+            window.location.href = 'https://example.com'; // 替换为你的链接
+        }
+    </script>
+</body>
+</html>
