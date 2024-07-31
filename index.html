@@ -1,3 +1,4 @@
+</html>
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -8,37 +9,30 @@
     <!-- 引入 Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
+        body,
+        html {
             margin: 0;
             padding: 0;
-            background: url('./红金色中国风升学宴邀请函.jpg') no-repeat center center;
-            background-size: cover;
-            /* 确保背景图片覆盖整个页面 */
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            /* 水平居中 */
-            align-items: center;
-            /* 垂直居中 */
-            flex-direction: column;
-            /* 设置为列方向排列 */
-        }
-
-        .container {
-            max-width: 1400px;
-            /* 设置最大宽度 */
             width: 100%;
-            /* 使容器宽度自适应 */
-            padding: 20px;
-            box-sizing: border-box;
-            /* 包含内边距和边框在内的总宽度 */
+            height: 100%;
+            overflow: auto;
+            /* 确保页面可以滚动 */
         }
 
         .content {
-            height: 2400px;
-            /* 使页面内容足够长，可以滚动 */
+            min-width: 100%;
+            min-height: 100%;
+            background: url('./红金色中国风升学宴邀请函.jpg') no-repeat center center fixed;
+            background-size: cover;
+            /* 确保背景图片覆盖整个页面 */
+            position: relative;
             color: white;
             /* 使文本在深色背景上可见 */
+            display: flex;
+            flex-direction: column;
+            /* 设置为列方向排列 */
+            justify-content: space-between;
+            /* 确保内容和按钮之间有间距 */
         }
 
         .audio-controls {
@@ -52,12 +46,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            /* 高度为视口高度，确保按钮在页面中间 */
             width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
+            padding-bottom: 20px;
+            /* 调整按钮距离底部的距离 */
         }
 
         .play-pause-button,
@@ -91,6 +82,10 @@
         .play-pause-button {
             border-radius: 50%;
             /* 使按钮圆形 */
+            width: 60px;
+            /* 按钮宽度 */
+            height: 60px;
+            /* 按钮高度 */
         }
 
         .play-pause-button:focus,
@@ -119,43 +114,17 @@
             opacity: 1;
             /* 悬停时使按钮变得完全不透明 */
         }
-
-        /* 媒体查询 */
-        @media (max-width: 768px) {
-
-            .play-pause-button,
-            .link-button {
-                width: 140px;
-                /* 调整按钮宽度 */
-                height: 50px;
-                /* 调整按钮高度 */
-                font-size: 18px;
-                /* 调整字体大小 */
-            }
-
-            .content {
-                height: auto;
-                /* 移动设备上自动调整内容高度 */
-                padding: 10px;
-                /* 调整内边距 */
-            }
-        }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="content">
-            <!-- 添加更多内容 -->
+    <div class="content">
+        <div class="link-button-container">
+            <button class="link-button" onclick="navigateToLink()">点击查看位置</button>
         </div>
-    </div>
-
-    <div class="audio-controls">
-        <button class="play-pause-button" onclick="togglePlayPause()"></button>
-    </div>
-
-    <div class="link-button-container">
-        <button class="link-button" onclick="navigateToLink()">点击查看位置</button>
+        <div class="audio-controls">
+            <button class="play-pause-button" onclick="togglePlayPause()"></button>
+        </div>
     </div>
 
     <audio id="background-music" src="./Music_Anak - Angham Suleiman.mp3" autoplay loop muted></audio>
